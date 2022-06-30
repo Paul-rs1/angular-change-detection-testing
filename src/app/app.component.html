@@ -1,3 +1,4 @@
-<hello name="{{ name }}"></hello>
-<button>change object</button>
-<p>Start editing to see some magic happen :)</p>
+<hello [nestedObject]="nestedObject"></hello>
+<button (click)="updateObject()">change object</button>
+<p>Last updated</p>
+<div>{{ lastUpdated }}</div>
