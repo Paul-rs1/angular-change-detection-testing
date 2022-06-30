@@ -29,4 +29,8 @@ export class AppComponent {
     this.nestedObject.updated = updated;
     this.nestedObject.information.updated;
   }
+
+  changeRef() {
+    this.nestedObject = getNewObject();
+  }
 }

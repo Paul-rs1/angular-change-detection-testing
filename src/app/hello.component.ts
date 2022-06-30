@@ -3,8 +3,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'hello',
   template: `
-    <div>Updated: {{nestedObject.updated.getTime()}}</div>
-    <div>Nested updated: {{nestedObject.information.updated.getTime()}}</div> 
+    <div>object.updated: {{nestedObject.updated.getTime()}}</div>
+    <div>object.information.updated: {{nestedObject.information.updated.getTime()}}</div> 
   `,
   styles: [
     `
