@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'hello',
@@ -12,6 +12,14 @@ import { Component, Input } from '@angular/core';
     `,
   ],
 })
-export class HelloComponent {
+export class HelloComponent implements OnChanges {
   @Input() nestedObject;
+
+  updated = [];
+
+  ngOnChanges() {
+    console.log('changes');
+    this.updated[0] = this.nestedObject.updated.getTime();
+    this.updated[1] = this.nestedObject.updated.getTime();
+  }
 }
