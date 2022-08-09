@@ -1,18 +1,13 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-function getNewObject() {
-  return {
-    name: 'Mustermann',
-    age: 43,
-    updated: new Date(),
-    information: {
-      address: 'street x, town y',
-      number: '0183118',
-      interests: ['swimming', 'ready', 'stuff'],
-      updated: new Date(),
-    },
-  };
-}
+const MAX = {
+  name: 'Max Mustermann',
+  age: 43,
+  information: {
+    mail: 'max@mustermann.com',
+    interests: ['swimming'],
+  },
+};
 
 @Component({
   selector: 'my-app',
@@ -20,17 +15,27 @@ function getNewObject() {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  nestedObject = getNewObject();
+  people = [MAX];
 
-  constructor(private cdref: ChangeDetectorRef) {}
-
-  updateObject() {
-    const updated = new Date();
-    this.nestedObject.updated = updated;
-    this.nestedObject.information.updated;
+  happyBirthdayMax() {
+    const max = this.people.find((person) =>
+      person.name.toLowerCase().includes('max')
+    );
+    max.age += 1;
   }
 
-  changeRef() {
-    this.nestedObject = getNewObject();
+  addInterest() {
+    const newInterests = ['coding', 'reading'];
+    const currCount = this.people[0].information.interests.length;
+    const newInterest =
+      currCount <= newInterests.length
+        ? newInterests[currCount - 1]
+        : `interest ${currCount}`;
+    this.people[0].information.interests.push(newInterest);
+    console.log('interests updated', this.people[0].information.interests);
+  }
+
+  peopleDeepCopy() {
+    this.people = JSON.parse(JSON.stringify(this.people));
   }
 }

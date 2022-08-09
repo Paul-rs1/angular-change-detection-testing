@@ -1,3 +1,9 @@
-<hello [nestedObject]="nestedObject"></hello>
-<button (click)="updateObject()">Update object</button>
-<button (click)="changeRef()">Change ref</button>
+<div class="component-container">
+  <default-strategy-component [people]="people"></default-strategy-component>
+  <push-strategy-component [people]="people"></push-strategy-component>
+</div>
+<editor-component
+  (happyBirthdayMax)="happyBirthdayMax()"
+  (addInterest)="addInterest()"
+  (deepCopy)="peopleDeepCopy()"
+></editor-component>
