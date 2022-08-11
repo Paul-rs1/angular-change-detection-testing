@@ -7,6 +7,7 @@ import { DefaultStrategyComponent } from './components/default.component';
 import { PushStrategyComponent } from './components/onpush.component';
 import { DisplayComponent } from './components/display.component';
 import { EditorComponent } from './components/editor.component';
+import { LiveData } from './components/livedata.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -16,6 +17,7 @@ import { EditorComponent } from './components/editor.component';
     PushStrategyComponent,
     DisplayComponent,
     EditorComponent,
+    LiveData,
   ],
   bootstrap: [AppComponent],
 })
