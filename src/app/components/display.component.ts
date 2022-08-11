@@ -28,9 +28,18 @@ export class DisplayComponent implements OnChanges, AfterViewChecked {
   @ViewChild('myDisplayContainer') ContainerRef: ElementRef;
   @Input() people;
 
+  highlight = false;
+
   // TODO highlight CD! not working
   ngOnChanges() {
-    if (!this.ContainerRef?.nativeElement) return;
+    console.log('onChanges');
+    this.highlight = true;
+  }
+
+  ngAfterViewChecked() {
+    console.log('view checked');
+    if (!this.ContainerRef?.nativeElement || !this.highlight) return;
+    this.highlight = false;
     this.ContainerRef.nativeElement.style.border = 'thin solid yellow';
     console.log('set yellow');
     setTimeout(() => {
