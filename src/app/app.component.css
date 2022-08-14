@@ -1,6 +1,13 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
 .component-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: pink;
+  padding: 2em 0;
+  align-content: stretch;
 }

@@ -12,7 +12,19 @@ import { Component, EventEmitter, Output } from '@angular/core';
     :host {
       display: flex;
       flex-direction: column;
-      padding: 5em;
+      align-items: center;
+      padding-top: 2em;
+    }
+
+    button {
+      border-radius: 5px;
+      height: 2em;
+      margin-bottom: 1em;
+      min-width: 15em;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: #a4eff5;
     }
   `,
   ],

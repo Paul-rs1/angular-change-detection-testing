@@ -1,6 +1,7 @@
 import {
   AfterViewChecked,
   Component,
+  DoCheck,
   ElementRef,
   Input,
   OnChanges,
@@ -15,35 +16,32 @@ import {
       <div>Age: {{person.age}}</div>
       <div>Mail: {{person.information.mail}}</div>
       <div>Interests: {{person.information.interests}}</div>
-
     </div>
-    
   `,
   styles: [
     `
   `,
   ],
 })
-export class DisplayComponent implements OnChanges, AfterViewChecked {
+export class DisplayComponent implements OnChanges, AfterViewChecked, DoCheck {
   @ViewChild('myDisplayContainer') ContainerRef: ElementRef;
   @Input() people;
 
   highlight = false;
 
-  // TODO highlight CD! not working
+  ngDoCheck() {
+    console.log('do check');
+  }
+
   ngOnChanges() {
-    console.log('onChanges');
     this.highlight = true;
   }
 
   ngAfterViewChecked() {
-    console.log('view checked');
     if (!this.ContainerRef?.nativeElement || !this.highlight) return;
     this.highlight = false;
     this.ContainerRef.nativeElement.style.border = 'thin solid yellow';
-    console.log('set yellow');
     setTimeout(() => {
-      console.log('set transparent');
       this.ContainerRef.nativeElement.style.border = 'thin solid transparent';
     }, 500);
   }

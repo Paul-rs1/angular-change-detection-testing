@@ -1,10 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  Input,
-  OnChanges,
-} from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'live-data',
@@ -19,27 +13,24 @@ import {
     `
     :host {
       display: flex;
-      background-color: blue;
-      color: white;
-      padding: 2em;
+      justify-content: center;
+      background-color: #a4eff5;
+      padding: 1em 0;
     }
   `,
   ],
 })
-export class LiveData implements DoCheck, OnChanges {
+export class LiveData implements OnInit, DoCheck {
   @Input() people;
   person;
   personJson;
-  constructor(private cdRef: ChangeDetectorRef) {}
+  constructor() {}
 
-  ngDoCheck() {
-    // implement custom changeDetection
-    if (this.people[0].age != this.person.age) {
-      this.setPerson();
-    }
+  ngOnInit() {
+    this.setPerson();
   }
 
-  ngOnChanges() {
+  ngDoCheck() {
     this.setPerson();
   }
 

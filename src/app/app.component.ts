@@ -22,6 +22,7 @@ export class AppComponent {
       person.name.toLowerCase().includes('max')
     );
     max.age += 1;
+    console.log(`Max is ${max.age}`);
   }
 
   addInterest() {
@@ -32,7 +33,6 @@ export class AppComponent {
         ? newInterests[currCount - 1]
         : `interest ${currCount}`;
     this.people[0].information.interests.push(newInterest);
-    console.log('interests updated', this.people[0].information.interests);
   }
 
   peopleDeepCopy() {
