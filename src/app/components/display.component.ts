@@ -23,15 +23,11 @@ import {
   `,
   ],
 })
-export class DisplayComponent implements OnChanges, AfterViewChecked, DoCheck {
+export class DisplayComponent implements OnChanges, AfterViewChecked {
   @ViewChild('myDisplayContainer') ContainerRef: ElementRef;
   @Input() people;
 
   highlight = false;
-
-  ngDoCheck() {
-    console.log('do check');
-  }
 
   ngOnChanges() {
     this.highlight = true;
@@ -40,9 +36,9 @@ export class DisplayComponent implements OnChanges, AfterViewChecked, DoCheck {
   ngAfterViewChecked() {
     if (!this.ContainerRef?.nativeElement || !this.highlight) return;
     this.highlight = false;
-    this.ContainerRef.nativeElement.style.border = 'thin solid yellow';
+    this.ContainerRef.nativeElement.style.border = 'medium solid yellow';
     setTimeout(() => {
-      this.ContainerRef.nativeElement.style.border = 'thin solid transparent';
+      this.ContainerRef.nativeElement.style.border = 'medium solid transparent';
     }, 500);
   }
 }

@@ -3,11 +3,11 @@
   width: 100%;
 }
 
-.component-container {
+.strategy-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: pink;
-  padding: 2em 0;
   align-content: stretch;
+  padding: 2em 1em 2em 1em;
 }
