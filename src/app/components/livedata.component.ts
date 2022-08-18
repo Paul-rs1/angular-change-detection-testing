@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'live-data',
@@ -20,17 +20,13 @@ import { Component, DoCheck, Input, OnInit } from '@angular/core';
   `,
   ],
 })
-export class LiveData implements OnInit, DoCheck {
+export class LiveData implements OnInit {
   @Input() people;
   person;
   personJson;
   constructor() {}
 
   ngOnInit() {
-    this.setPerson();
-  }
-
-  ngDoCheck() {
     this.setPerson();
   }
 
